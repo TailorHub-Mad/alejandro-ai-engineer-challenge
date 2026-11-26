@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f8f5">
+  <title>Case study · Inspection assistant</title>
+  <link rel="preload" href="/assets/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+  <header class="mast">
+    <div class="wrap mast-inner">
+      <span class="wordmark">Case study</span>
+      <nav class="mast-nav" aria-label="Case study">
+        <details id="recent-questions" hidden>
+          <summary>Recent questions</summary>
+          <div id="recent-list" class="question-list"></div>
+        </details>
+        <a class="quiet-link" href="/atlas/#brief">Assignment &amp; atlas <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap workspace" id="main" tabindex="-1">
+    <div class="reader">
+      <div class="intro">
+        <h1>Ask the inspection manual<span aria-hidden="true">.</span></h1>
+        <p>Ask about inspecting the inside of an empty bulk vessel hold. Answers cite section 8.1 of the <a href="/source/A3#page=20" target="_blank" rel="noopener">Australian work instruction</a>.</p>
+      </div>
+      <div id="asked" hidden>
+        <details id="thread-nav" hidden>
+          <summary>Thread <span id="thread-count"></span></summary>
+          <div id="thread-list" class="question-list"></div>
+        </details>
+        <div class="question-tools">
+          <p>Your question</p>
+          <button type="button" class="text-button" id="edit-question">Edit question</button>
+        </div>
+        <h1 id="asked-question" tabindex="-1"></h1>
+      </div>
+      <p id="progress" role="status" aria-live="polite"></p>
+      <section id="result" hidden tabindex="-1" aria-labelledby="result-title">
+        <h2 id="result-title"></h2>
+        <div id="claims"></div>
+        <p id="gap-scope" hidden><strong>Scope searched</strong> Section 8.1 of the Australian work instruction covers six steps for inspecting the inside of an empty hold, on pages 20–22.</p>
+        <details id="evidence" hidden>
+          <summary><span id="passages-label">Source passages</span> <span id="passage-count"></span></summary>
+          <p class="manual-reference"><a href="/source/A3#page=20" target="_blank" rel="noopener">Inspecting empty bulk vessels for export ↗</a><br>Australian Department of Agriculture, Fisheries and Forestry · Edition 7.0, 1 July 2026 · Section 8.1, pp. 20–22</p>
+          <div id="passages"></div>
+        </details>
+        <details id="answer-trace" hidden>
+          <summary>Answer trace</summary>
+          <dl id="trace-fields"></dl>
+        </details>
+      </section>
+      <form id="ask-form">
+        <label for="question">Your question</label>
+        <fieldset id="question-mode" hidden>
+          <legend class="visually-hidden">How to ask your next question</legend>
+          <label><input type="radio" id="mode-new" name="mode" value="new" checked><span>Another question</span></label>
+          <label><input type="radio" id="mode-follow-up" name="mode" value="follow-up"><span>Follow-up question</span></label>
+        </fieldset>
+        <p id="context-label" hidden></p>
+        <div class="composer">
+          <textarea id="question" name="question" rows="3" maxlength="1200" required placeholder="What would you like to check?"></textarea>
+          <div class="actions"><button id="submit" type="submit">Ask question <span aria-hidden="true">→</span></button></div>
+        </div>
+      </form>
+      <section class="examples" aria-labelledby="examples-title">
+        <h2 id="examples-title">Try a question</h2>
+        <button type="button" class="example"><span>Where should residues knocked down during the hold inspection be collected, and why?</span><span aria-hidden="true">↗</span></button>
+        <button type="button" class="example"><span>What minimum weight of residue must be collected in each pile on the tank top?</span><span aria-hidden="true">↗</span></button>
+      </section>
+    </div>
+    <aside class="source-pane" id="source-pane" aria-labelledby="source-heading" hidden>
+      <div class="pane-header"><h2 id="source-heading" tabindex="-1">Source passage</h2><button id="close-source" type="button" class="text-button">Close source</button></div>
+      <p class="source-location" id="source-location"></p>
+      <blockquote id="source-quote" aria-label="Exact quote"></blockquote>
+      <iframe id="pdf-viewer" title="Highlighted quote in the original PDF"></iframe>
+      <div class="viewer-tools"><a id="open-passage" class="quiet-link" target="_blank" rel="noopener">Open highlighted PDF <span aria-hidden="true">↗</span></a></div>
+      <details class="transcript"><summary>Read passage text</summary><p id="source-text"></p></details>
+    </aside>
+  </main>
+  <footer class="wrap">Vessel readiness requires an authorised inspection.</footer>
+</body>
+</html>

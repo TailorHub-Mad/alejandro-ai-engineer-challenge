@@ -1,0 +1,107 @@
+{
+  "date": "2026-11-19",
+  "provider": "OpenRouter",
+  "chat": "openai/gpt-4.1-mini",
+  "embedding": "openai/text-embedding-3-small",
+  "dimensions": 256,
+  "top_k": 2,
+  "temperature": 0,
+  "max_output_tokens": 450,
+  "method": "Submitted the extracted passages and the two questions together to the live embeddings API using OpenRouter's API playground. Local cosine retrieval selected the two steps per question. Sent the resulting application messages to the live chat API, then replayed the returned values through the FastAPI routes in process, verifying request contents. This environment blocked direct backend-to-OpenRouter connections.",
+  "embeddings": {
+    "batch_items": 8,
+    "tokens": 1098,
+    "upstream_usd": 2.196e-05
+  },
+  "cases": [
+    {
+      "id": "residue-location",
+      "question": "Where should residues knocked down during the hold inspection be collected, and why?",
+      "expected": "In piles on the tank top for inspection. Section 8.1, steps 1–4.",
+      "retrieved": [
+        {
+          "id": "A3-8.1-03",
+          "score": 0.55044
+        },
+        {
+          "id": "A3-8.1-01",
+          "score": 0.54968
+        }
+      ],
+      "provider_response": {
+        "status": "answered",
+        "claims": [
+          {
+            "text": "Residues knocked down during the hold inspection should be collected and retained on the tank top in piles for inspection.",
+            "citations": [
+              "A3-8.1-01",
+              "A3-8.1-03"
+            ]
+          },
+          {
+            "text": "The purpose of retaining residues on the tank top in piles is for inspection.",
+            "citations": [
+              "A3-8.1-01",
+              "A3-8.1-03"
+            ]
+          }
+        ]
+      },
+      "displayed_claims": [
+        {
+          "text": "Residues knocked down during the hold inspection should be collected and retained on the tank top in piles for inspection.",
+          "citations": [
+            "A3-8.1-01",
+            "A3-8.1-03"
+          ]
+        },
+        {
+          "text": "The purpose of retaining residues on the tank top in piles is for inspection.",
+          "citations": [
+            "A3-8.1-01",
+            "A3-8.1-03"
+          ]
+        }
+      ],
+      "provider_run_id": "gen-1795065266-PEc6eyHm3kXoOllXIhb6",
+      "usage": {
+        "prompt_tokens": 803,
+        "completion_tokens": 122,
+        "upstream_usd": 0.0005164
+      },
+      "judgement": "Partial on retrospective review. The answer correctly locates the piles on the tank top and gives the originally expected generic purpose, inspection, twice. It cited steps 1 and 3. Step 4 was neither retrieved nor cited. Its note on page 22 gives the more specific purpose the answer omits: the authorised officer inspects the residues for evidence of infestation."
+    },
+    {
+      "id": "residue-weight",
+      "question": "What minimum weight of residue must be collected in each pile on the tank top?",
+      "expected": "Report that the selected passages give no minimum pile weight. Do not supply a number.",
+      "retrieved": [
+        {
+          "id": "A3-8.1-04",
+          "score": 0.44707
+        },
+        {
+          "id": "A3-8.1-03",
+          "score": 0.3781
+        }
+      ],
+      "provider_response": {
+        "status": "evidence_gap",
+        "claims": []
+      },
+      "displayed_claims": [
+        {
+          "text": "The retrieved passages do not specify the requested detail.",
+          "citations": []
+        }
+      ],
+      "provider_run_id": "gen-1795065279-4uoISbHq46kt3bq45YHu",
+      "usage": {
+        "prompt_tokens": 892,
+        "completion_tokens": 17,
+        "upstream_usd": 0.000384
+      },
+      "judgement": "Pass. The retrieved steps discuss collecting material but give no weight. The model chose evidence_gap, and the app displayed its standard gap explanation."
+    }
+  ]
+}

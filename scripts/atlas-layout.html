@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8f8f5"><title>Assignment &amp; atlas · Case study</title>
+  <meta name="description" content="Read the cargo hold inspection assignment, explore the prototype and trace its answers to the original manual.">
+  <style>@@STYLES@@</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast">
+  <a class="brand" href="#brief">Case study</a>
+  <nav class="topnav" aria-label="Case study"><a id="ask-link" data-ask-link href="/">Ask</a><a href="#brief" aria-current="page">Assignment</a><a href="#overview">Solution</a><a href="#results">Results</a></nav>
+  <button class="search-trigger" id="open-search" aria-label="Search the case study"><span aria-hidden="true">&#8981;</span><span>Search</span><kbd>/</kbd></button>
+  <button class="menu" id="menu-toggle" aria-expanded="false" aria-controls="sidebar">Contents</button>
+</header>
+<div class="layout">
+  <aside id="sidebar" aria-label="Table of contents"><div class="nav-group"><div class="nav-caption">Contents</div><a href="#brief" aria-current="page">Assignment</a><a href="#overview">Solution</a><a href="#results">Results</a></div></aside>
+  <main id="main" tabindex="-1">
+    <div id="assignment-landing">
+      <div class="brief-spread">
+        <section class="brief-intro" aria-labelledby="brief-title">
+          <p class="eyeline">AI engineer take-home</p>
+          <h1 id="brief-title">The assignment<span aria-hidden="true">.</span></h1>
+          <p class="brief-lead">Build a local assistant that helps a shipping analyst check how to prepare and clean a cargo hold.</p>
+          <p class="brief-detail">The analyst asks in English. Each answer points to the exact passage in a public manual. When the manual leaves a question open, the assistant says what it couldn’t establish.</p>
+          <div class="brief-actions">
+            <a class="primary brief-action" href="#assignment/instructions">Read the original brief <span aria-hidden="true">&rarr;</span></a>
+            <a class="textlink brief-ask" data-ask-link href="/">Try the assistant <span aria-hidden="true">&nearr;</span></a>
+          </div>
+        </section>
+        <figure class="scope-card">
+          <div class="scope-art">
+            <svg viewBox="0 0 440 215" role="img" aria-labelledby="hold-figure-title" xmlns="http://www.w3.org/2000/svg">
+              <title id="hold-figure-title">A cross-section of an empty cargo hold with the tank top marked at its base</title>
+              <defs>
+                <pattern id="hold-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 H 0 V 20" fill="none" stroke="#718994" stroke-width=".55" opacity=".35"/></pattern>
+                <pattern id="hold-steel" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(29)"><path d="M0 0V5" fill="none" stroke="#334a57" stroke-width="1"/></pattern>
+              </defs>
+              <path fill="#e8eff1" d="M0 0h440v215H0z"/><path fill="url(#hold-grid)" d="M0 0h440v215H0z"/>
+              <g fill="none" stroke="#364a53" stroke-linejoin="round">
+                <path d="M57 62h34l9 8h42v-9h151v9h43l8-8h35l-15 77-42 37H111l-40-37z" fill="#b1c2c9" stroke-width="2.4"/>
+                <path d="M57 62h34l9 8h42v-9h151v9h43l8-8h35l-15 77-42 37H111l-40-37z" fill="url(#hold-steel)"/>
+                <path d="M105 76h38V61h149v15h37l-14 26v25l-23 25H139l-22-25v-25z" fill="#f9faf6" stroke-width="2.4"/>
+                <path d="M71 139l46-12m198 0 49 12m-225 13-7 24m160-24 7 24M142 61v-5h151v5" stroke-width="1.3"/>
+              </g>
+              <path d="M139 152h153" stroke="#f16542" stroke-width="5"/>
+              <g fill="none" stroke="#364a53" stroke-width="1" stroke-linecap="round"><path d="M215 152v32l14 11h16"/><circle cx="215" cy="152" r="2.2" fill="#364a53"/></g>
+              <text x="252" y="199" fill="#26343a" font-family="Arial, sans-serif" font-size="12">Tank top</text>
+            </svg>
+          </div>
+          <figcaption class="scope-caption"><span class="scope-label">Source in this prototype</span><h2>Inside an empty hold</h2><p>Australian inspection manual &middot; Section 8.1 &middot; pp. 20&ndash;22</p></figcaption>
+        </figure>
+      </div>
+      <section class="deliverables" aria-labelledby="deliverables-title">
+        <h2 id="deliverables-title">What to deliver</h2>
+        <ol class="reading-list">
+          <li><div><h3>A working assistant</h3><p>Choose one or two public sources. Build a local question form and API that retrieve relevant passages and use them to generate a cited answer.</p></div></li>
+          <li><div><h3>Two checked answers</h3><p>Run one question the source answers and one it leaves open. Save the passages and responses, then judge each result against what you expected.</p></div></li>
+          <li><div><h3>A ten-minute walkthrough</h3><p>Share a runnable repository and README. Explain a trade-off, a limitation and the first three improvements you would make for a pilot.</p></div></li>
+        </ol>
+      </section>
+      <details class="assessment-details">
+        <summary>Time budget and scoring</summary>
+        <p class="brief-constraint">Aim for 3&ndash;4 hours of preparation. Stop at 5 hours. The live review lasts 60 minutes.</p>
+        <dl class="grade-key">
+          <div><dt>Next steps and production judgement</dt><dd>35%</dd></div>
+          <div><dt>Technical defence and ownership</dt><dd>30%</dd></div>
+          <div><dt>Working prototype</dt><dd>20%</dd></div>
+          <div><dt>Verification</dt><dd>15%</dd></div>
+        </dl>
+      </details>
+      <nav class="brief-docs" aria-label="Assignment documents"><a href="#assignment/criteria">Completion checklist</a><a href="#assignment/sources">Public source guidance</a><a href="#requirements">Requirements mapped to code</a></nav>
+      <a class="read-next" href="#overview"><span><small>Next in the case study</small><strong>How the prototype works</strong></span><b aria-hidden="true">&rarr;</b></a>
+    </div>
+    <div class="document-store">@@DOCUMENTS@@</div>
+  </main>
+</div>
+<dialog id="search-dialog"><div class="dialogtop"><label for="search-input">Search the case study</label><button id="close-search" type="button">Close</button></div>
+  <input type="search" id="search-input" placeholder="Try assignment, retrieval or citations" autocomplete="off"><div id="search-results"></div></dialog>
+<noscript><p>The assignment and original documents are readable here. Enable JavaScript to explore the interactive labs.</p></noscript>
+@@SCRIPTS@@
+</body></html>

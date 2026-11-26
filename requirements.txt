@@ -1,0 +1,6 @@
+fastapi==0.159.1
+uvicorn==0.54.0
+pdfplumber==0.11.9
+pypdf==6.21.4
+numpy==2.3.5
+python-dotenv==1.2.4

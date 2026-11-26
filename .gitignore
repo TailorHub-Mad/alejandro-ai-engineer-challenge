@@ -1,0 +1,12 @@
+﻿.env
+__pycache__/
+.env.*
+!.env.example
+*.pyc
+.venv/
+node_modules/
+dist/
+data/store/
+data/logs/
+data/raw/*.pdf
+.pytest_cache/

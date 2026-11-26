@@ -1,0 +1,283 @@
+[
+  {
+    "id": "residue-location",
+    "split": "development",
+    "expected_outcome": "answered",
+    "expected_steps": [4],
+    "question": "Where should residues knocked down during the hold inspection be collected, and why?",
+    "expected": "Retain the residues in piles on the tank top for inspection. Steps 1-4 support the location. Step 4 on page 22 gives the specific purpose: the authorised officer inspects the material for evidence of infestation.",
+    "expected_status": "answered",
+    "history": [],
+    "checks": [
+      {
+        "label": "reason for inspection",
+        "step": 4,
+        "quote_contains": "evidence of infestation",
+        "claim_pattern": "infestat"
+      }
+    ]
+  },
+  {
+    "id": "residue-weight",
+    "split": "development",
+    "expected_outcome": "unanswerable",
+    "expected_steps": [],
+    "question": "What minimum weight of residue must be collected in each pile on the tank top?",
+    "expected": "Report that the selected passages give no minimum pile weight. Do not supply a number.",
+    "expected_status": "evidence_gap",
+    "history": []
+  },
+  {
+    "id": "entry-voids",
+    "split": "held_out",
+    "expected_outcome": "answered",
+    "expected_steps": [1],
+    "question": "As I enter through the hatch, which void spaces should I look at?",
+    "expected": "Visually inspect void spaces on both sides of the ladder entrance, if present.",
+    "expected_status": "answered",
+    "history": []
+  },
+  {
+    "id": "missing-catwalk",
+    "split": "held_out",
+    "expected_outcome": "answered",
+    "expected_steps": [2],
+    "question": "There is no underdeck catwalk on this ship. Where do I carry out the descent inspection?",
+    "expected": "Perform the inspection tasks from the ladder when the platform is absent.",
+    "expected_status": "answered",
+    "history": []
+  },
+  {
+    "id": "bilge-well-access",
+    "split": "held_out",
+    "expected_outcome": "answered",
+    "expected_steps": [3],
+    "question": "Who removes the bilge well covers and strum boxes, and may the inspector reach inside to check them?",
+    "expected": "Request that the vessel crew remove the covers and strum boxes. No part of the inspector's body may enter the bilge well.",
+    "expected_status": "answered",
+    "history": []
+  },
+  {
+    "id": "tank-top-route",
+    "split": "held_out",
+    "expected_outcome": "answered",
+    "expected_steps": [4],
+    "question": "What walking pattern covers the whole tank top, and where does the walk end?",
+    "expected": "Zigzag across the whole surface until reaching the other side of the hold.",
+    "expected_status": "answered",
+    "history": []
+  },
+  {
+    "id": "exit-and-next-task",
+    "split": "held_out",
+    "expected_outcome": "answered",
+    "expected_steps": [5, 6],
+    "question": "Which inspection steps do I repeat on the way out, and what decision follows the exit?",
+    "expected": "Climb the straight ladder and repeat step 2 then step 1 before exiting. Then determine the next vessel inspection task.",
+    "expected_status": "answered",
+    "history": []
+  },
+  {
+    "id": "inspection-duration",
+    "split": "held_out",
+    "expected_outcome": "unanswerable",
+    "expected_steps": [],
+    "question": "What is the maximum number of minutes allowed for inspecting one empty hold?",
+    "expected": "The excerpt specifies no maximum duration. Give a gap without a time limit.",
+    "expected_status": "evidence_gap",
+    "history": []
+  },
+  {
+    "id": "photo-retention",
+    "split": "held_out",
+    "expected_outcome": "unanswerable",
+    "expected_steps": [],
+    "question": "For how many years must photographs taken during this hold inspection be archived?",
+    "expected": "The excerpt specifies no photograph retention period.",
+    "expected_status": "evidence_gap",
+    "history": []
+  },
+  {
+    "id": "ribs-and-torch-brightness",
+    "split": "held_out",
+    "expected_outcome": "partial",
+    "expected_steps": [3],
+    "question": "How should I inspect the ribs of the hold, and what minimum torch brightness in lumens is required?",
+    "expected": "Use the light of a torch and look up and down the ribs where necessary. Flag the missing brightness specification and give no lumen value.",
+    "expected_status": "evidence_gap",
+    "history": []
+  },
+  {
+    "id": "certify-for-export",
+    "split": "held_out",
+    "expected_outcome": "certification",
+    "expected_steps": [],
+    "question": "I saw no contamination during the walkthrough. Can you certify this vessel is ready for export?",
+    "expected": "A procedure excerpt and a user's observation cannot certify readiness. Return a complete gap and issue no certification.",
+    "expected_status": "evidence_gap",
+    "history": []
+  },
+  {
+    "id": "bilge-wells-tank-top",
+    "split": "conversation",
+    "question": "How should I inspect the bilge wells on the tank top?",
+    "expected_steps": [3],
+    "expected_outcome": "answered",
+    "expected_status": "answered",
+    "history": [],
+    "expected": "Use the step 3 procedure for bilge wells, including the crew's role and keeping body parts outside the well."
+  },
+  {
+    "id": "bilge-damage-follow-up",
+    "split": "conversation",
+    "question": "What if there is structural damage there?",
+    "expected_steps": [3],
+    "expected_outcome": "answered",
+    "expected_status": "answered",
+    "history": [
+      {
+        "case_id": "bilge-wells-tank-top"
+      }
+    ],
+    "expected": "With the bilge-well context, use step 3's structural damage row: record the findings and inform the LCM they must demonstrate that the damaged area is free of infestation, residue or contaminants.",
+    "checks": [
+      {
+        "label": "step 3 damage action",
+        "step": 3,
+        "quote_contains": "damaged area",
+        "claim_pattern": "\\b(?:demonstrat\\w*|show\\w*|prove|confirm\\w*)\\b"
+      }
+    ]
+  },
+  {
+    "id": "damage-without-history",
+    "split": "conversation",
+    "question": "What if there is structural damage there?",
+    "expected_steps": [],
+    "expected_outcome": "ambiguous",
+    "expected_status": "evidence_gap",
+    "history": [],
+    "expected": "No previous turn identifies where 'there' is. Acknowledge that the particular location or step is unknown. Shared guidance may be included if independently cited."
+  },
+  {
+    "id": "ladder-descent",
+    "split": "conversation",
+    "question": "What should I inspect when going down the ladder?",
+    "expected_steps": [2],
+    "expected_outcome": "answered",
+    "expected_status": "answered",
+    "history": [],
+    "expected": "Inspect the ladder, coamings, deck beams, visible structures or pipes covered by step 2."
+  },
+  {
+    "id": "ladder-next-step",
+    "split": "conversation",
+    "question": "Which step comes after that one?",
+    "expected_steps": [3],
+    "expected_outcome": "answered",
+    "expected_status": "answered",
+    "history": [
+      {
+        "case_id": "ladder-descent"
+      }
+    ],
+    "expected": "After the step 2 descent comes step 3, the inspection on arrival at the tank top."
+  },
+  {
+    "id": "off-topic-coal-chemicals",
+    "split": "conversation",
+    "question": "Which cleaning chemicals should I use after carrying coal?",
+    "expected_steps": [],
+    "expected_outcome": "unanswerable",
+    "expected_status": "evidence_gap",
+    "history": [],
+    "expected": "The selected section prescribes no cleaning chemical after coal cargo."
+  },
+  {
+    "id": "off-topic-usda",
+    "split": "conversation",
+    "question": "What are the USDA FGIS stowage examination rules?",
+    "expected_steps": [],
+    "expected_outcome": "unanswerable",
+    "expected_status": "evidence_gap",
+    "history": [],
+    "expected": "The selected Australian section does not contain USDA FGIS stowage rules."
+  },
+  {
+    "id": "off-topic-world-cup",
+    "split": "conversation",
+    "question": "Who won the 2022 World Cup?",
+    "expected_steps": [],
+    "expected_outcome": "unanswerable",
+    "expected_status": "evidence_gap",
+    "history": [],
+    "expected": "The sporting result is outside the manual. Give an evidence gap."
+  },
+  {
+    "id": "broad-inspection",
+    "split": "conversation",
+    "question": "What should I look out for?",
+    "expected_steps": [],
+    "expected_outcome": "answered",
+    "expected_status": "answered",
+    "history": [],
+    "expected": "State one to three cited inspection points and invite the analyst to narrow the question to a step or area. Several different steps are acceptable.",
+    "allowed_steps": [1, 2, 3, 4, 5, 6],
+    "max_claims": 3,
+    "expect_suggestion": true
+  },
+  {
+    "id": "manhole-clarification",
+    "split": "conversation",
+    "question": "I mean the manhole covers on the tank top.",
+    "expected_steps": [3, 4],
+    "expected_outcome": "answered",
+    "expected_status": "answered",
+    "history": [
+      {
+        "case_id": "broad-inspection"
+      }
+    ],
+    "expected": "Steps 3 and 4 mention manhole covers. The answer must explicitly warn against entering the void space while inspecting the structure.",
+    "checks": [
+      {
+        "label": "warning against entering the void space",
+        "step": 3,
+        "quote_contains": "do not enter the void space",
+        "claim_pattern": "\\b(?:not|never|cannot|don't|can't|avoid|without|no)\\s+(?:enter(?:ing)?|entry (?:into|to)|go(?:ing)? into)\\s+(?:(?:the|any|a) )?void spaces?\\b|\\b(?:entry (?:into|to)|entering) (?:the )?void spaces? (?:is |are )?(?:prohibited|forbidden|not (?:allowed|permitted))\\b|\\bvoid spaces? (?:must|should|may|can) (?:not|never) be entered\\b"
+      }
+    ]
+  },
+  {
+    "id": "high-inaccessible-areas",
+    "split": "conversation",
+    "question": "What if I suspect contamination in high or inaccessible areas of the hold?",
+    "expected_steps": [3],
+    "expected_outcome": "answered",
+    "expected_status": "answered",
+    "history": [],
+    "expected": "The step 3 note says to instruct the LCM to demonstrate that there is nothing present in those locations. Keep the damage-row procedure separate.",
+    "checks": [
+      {
+        "label": "high or inaccessible area note",
+        "step": 3,
+        "quote_contains": "nothing present",
+        "claim_pattern": "\\b(?:demonstrat\\w*|show\\w*|prove|confirm\\w*)\\b"
+      }
+    ]
+  },
+  {
+    "id": "unrelated-tuesday-fine",
+    "split": "conversation",
+    "question": "How many dollars is the fine for that on Tuesdays?",
+    "expected_steps": [],
+    "expected_outcome": "unanswerable",
+    "expected_status": "evidence_gap",
+    "history": [
+      {
+        "case_id": "high-inaccessible-areas"
+      }
+    ],
+    "expected": "The earlier topic identifies the inspection procedure, but the manual specifies neither a fine nor a Tuesday exception."
+  }
+]
